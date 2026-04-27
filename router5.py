@@ -204,16 +204,8 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, max_buf
         destinationIP_bin = ip_to_bin(destinationIP)
         destinationIP_int = int(destinationIP_bin, 2)
 
-        this_router_min_ip = forwarding_table_with_range[0][0]
-        this_router_max_ip = forwarding_table_with_range[0][1]
-
-        # 9. If no port is found, then set the sending port to the default port.
-        if this_router_min_ip <= destinationIP_int <= this_router_max_ip:
-            print("OUT:", payload)
-            write_to_file("./output/out_router_5.txt", payload)
-        else:
-            print("DISCARD:", new_packet)
-            write_to_file("./output/discarded_by_router_5.txt", new_packet)
+        print("OUT:", payload)
+        write_to_file("./output/out_router_5.txt", payload)
 
 
 # Main Program
